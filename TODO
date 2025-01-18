@@ -1,0 +1,56 @@
+my_gui_app/
+│
+├── main.py                 # Entry point for the application
+├── requirements.txt        # Python dependencies (if using pip)
+├── pyproject.toml          # Project configuration (if using uv or other tools)
+├── README.md               # Project documentation
+├── .gitignore              # Git ignore file
+│
+├── assets/                 # Static assets like images, fonts, or icons
+│   ├── images/
+│   ├── fonts/
+│   └── styles/
+│
+├── configs/                # Configuration files
+│   ├── settings.json       # Application settings
+│   └── logging.conf        # Logging configuration
+│
+├── data/                   # Data files (e.g., SQLite database, sample data, etc.)
+│   └── app.db
+│
+├── docs/                   # Documentation files
+│
+├── src/                    # Main source code
+│   ├── __init__.py         # Makes `src` a package
+│   ├── gui/                # GUI components and views
+│   │   ├── __init__.py
+│   │   ├── main_window.py  # Main application window
+│   │   ├── widgets/        # Custom widgets
+│   │   │   └── custom_widget.py
+│   │   └── dialogs/        # Dialog windows
+│   │       └── about_dialog.py
+│   │
+│   ├── controllers/        # Business logic and controllers
+│   │   ├── __init__.py
+│   │   └── app_controller.py
+│   │
+│   ├── models/             # Data models
+│   │   ├── __init__.py
+│   │   └── user_model.py
+│   │
+│   ├── services/           # Services like API handlers or database access
+│   │   ├── __init__.py
+│   │   └── database_service.py
+│   │
+│   └── utils/              # Utility functions and helpers
+│       ├── __init__.py
+│       ├── file_utils.py
+│       └── logger.py
+│
+└── tests/                  # Unit and integration tests
+    ├── __init__.py
+    ├── test_main.py        # Tests for main.py
+    ├── gui/                # Tests for GUI components
+    ├── controllers/        # Tests for controllers
+    ├── models/             # Tests for models
+    └── utils/              # Tests for utility functions
