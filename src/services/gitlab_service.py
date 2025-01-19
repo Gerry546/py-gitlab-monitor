@@ -16,3 +16,6 @@ class GitlabApi:
             else:
                 break
         print('done')
+
+    def getProject(self):
+        return self.project.attributes

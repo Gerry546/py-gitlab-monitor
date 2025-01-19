@@ -1,17 +1,29 @@
-from PySide6.QtUiTools import QUiLoader
-from PySide6.QtGui import QColor, QFont
+from PySide6.QtGui import QColor
+from PySide6.QtWidgets import QMainWindow, QWidget
+from src.gui.project_card import ProjectCard
+from src.gui.flowlayout import FlowLayout
 
-class GitlabMonitor():
+class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        loader = QUiLoader()
-        self.window = loader.load("src/gui/main_window.ui", None)
         self.initUI()
-        self.window.show()
 
     def initUI(self):
-        p = self.window.palette()
-        p.setColor(self.window.backgroundRole(), QColor("#212121"))
-        self.window.setPalette(p)
-        self.window.setFont(QFont("Sans Serif", 12))
-        self.window.setWindowTitle("Gitlab Monitor")
+        widget = QWidget()
+
+        self.pageLayout = FlowLayout(widget)
+        
+        widget.setLayout(self.pageLayout)
+        palette = self.palette()
+        palette.setColor(self.backgroundRole(), QColor("#212121"))
+        self.setPalette(palette)
+        self.setWindowTitle("Gitlab Monitor")
+        self.setCentralWidget(widget)
+    
+    def addGitlabServer(self, gl):
+        self.gl = gl
+        self.addProject()
+   
+    def addProject(self):
+        projectCard = ProjectCard(project=self.gl.getProject())
+        self.pageLayout.addWidget(projectCard)

@@ -1,14 +1,13 @@
+import sys
 from PySide6.QtWidgets import QApplication
-from src.gui.main_window import GitlabMonitor
+from src.gui.main_window import MainWindow
 from src.services.gitlab_service import GitlabApi
 
-def run_app():
-    app = QApplication([])
-
-    mainWindow = GitlabMonitor()
-    gl = GitlabApi()
-    app.exec()
-
-
 if __name__ == "__main__":
-    run_app()
+    app = QApplication(sys.argv)
+
+    mainWindow = MainWindow()
+    gl = GitlabApi()
+    mainWindow.addGitlabServer(gl)
+    mainWindow.show()
+    sys.exit(app.exec())
