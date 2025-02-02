@@ -1,56 +1,32 @@
-my_gui_app/
-│
-├── main.py                 # Entry point for the application
-├── requirements.txt        # Python dependencies (if using pip)
-├── pyproject.toml          # Project configuration (if using uv or other tools)
-├── README.md               # Project documentation
-├── .gitignore              # Git ignore file
-│
-├── assets/                 # Static assets like images, fonts, or icons
-│   ├── images/
-│   ├── fonts/
-│   └── styles/
-│
-├── configs/                # Configuration files
-│   ├── settings.json       # Application settings
-│   └── logging.conf        # Logging configuration
-│
-├── data/                   # Data files (e.g., SQLite database, sample data, etc.)
-│   └── app.db
-│
-├── docs/                   # Documentation files
-│
-├── src/                    # Main source code
-│   ├── __init__.py         # Makes `src` a package
-│   ├── gui/                # GUI components and views
+my_nicegui_app/
+│── app/
+│   ├── __init__.py        # Make the folder a package
+│   ├── main.py            # Entry point (start NiceGUI here)
+│   ├── routes.py          # Define UI routes (optional)
+│   ├── views/
+│   │   ├── __init__.py    
+│   │   ├── home.py        # Home page UI
+│   │   ├── dashboard.py   # Dashboard page UI
+│   │   ├── settings.py    # Settings page UI
+│   ├── components/        # Custom reusable UI components
 │   │   ├── __init__.py
-│   │   ├── main_window.py  # Main application window
-│   │   ├── widgets/        # Custom widgets
-│   │   │   └── custom_widget.py
-│   │   └── dialogs/        # Dialog windows
-│   │       └── about_dialog.py
-│   │
-│   ├── controllers/        # Business logic and controllers
+│   │   ├── navbar.py      # Navigation bar component
+│   │   ├── footer.py      # Footer component
+│   ├── services/          # Business logic (e.g., database, API calls)
 │   │   ├── __init__.py
-│   │   └── app_controller.py
-│   │
-│   ├── models/             # Data models
-│   │   ├── __init__.py
-│   │   └── user_model.py
-│   │
-│   ├── services/           # Services like API handlers or database access
-│   │   ├── __init__.py
-│   │   └── database_service.py
-│   │
-│   └── utils/              # Utility functions and helpers
-│       ├── __init__.py
-│       ├── file_utils.py
-│       └── logger.py
+│   │   ├── database.py    # DB connection and queries
+│   │   ├── auth.py        # Authentication logic
+│   ├── static/            # Static assets (images, CSS, etc.)
+│   ├── templates/         # Optional Jinja templates if needed
 │
-└── tests/                  # Unit and integration tests
-    ├── __init__.py
-    ├── test_main.py        # Tests for main.py
-    ├── gui/                # Tests for GUI components
-    ├── controllers/        # Tests for controllers
-    ├── models/             # Tests for models
-    └── utils/              # Tests for utility functions
+│── tests/                 # Unit and integration tests
+│   ├── test_main.py
+│   ├── test_views.py
+│
+│── .env                   # Environment variables
+│── pyproject.toml          # Managed by `uv`
+│── README.md               # Project documentation
+│── .gitignore              # Ignore unnecessary files
+│── run.py                  # Simple script to run the app
+
+https://github.com/bitdoze/nicegui-starter
