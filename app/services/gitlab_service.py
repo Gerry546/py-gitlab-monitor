@@ -4,18 +4,12 @@ import gitlab
 class GitlabApi:
     def __init__(self):
         super().__init__()
+        # Initialize GitLab API Client
+        self.server = gitlab.Gitlab(GITLAB_URL, private_token=PRIVATE_TOKEN, ssl_verify=False)
+        self.server.auth()  # Authenticate
 
-        self.server = gitlab.Gitlab()
-        self.projects = self.server.projects.list(iterator=True)
-        i = 0
-        for project in self.projects:
-            if i < 1:
-                self.project = self.server.projects.get(project.id)
-                print(self.project.attributes)
-                i += 1
-            else:
-                break
-        print('done')
+    def getUser(self):
+        return self.server.user.id
 
-    def getProject(self):
-        return self.project.attributes
+    def getMemberProjects(self):
+        return self.server.projects.list(order_by="last_activity_at", membership=True)

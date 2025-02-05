@@ -1,3 +1,6 @@
+Ensure that config.json is read at boot, if it is not there copy over the config-dummy.json into config.json
+Create singleton class for configuration
+
 my_nicegui_app/
 │── app/
 │   ├── __init__.py        # Make the folder a package
