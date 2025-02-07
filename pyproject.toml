@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "nicegui>=2.10.1",
+    "orjson>=3.10.15",
     "python-gitlab>=5.3.1",
     "ruff>=0.9.1",
 ]

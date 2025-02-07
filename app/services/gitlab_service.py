@@ -2,10 +2,10 @@ import gitlab
 
 
 class GitlabApi:
-    def __init__(self):
+    def __init__(self, config):
         super().__init__()
         # Initialize GitLab API Client
-        self.server = gitlab.Gitlab(GITLAB_URL, private_token=PRIVATE_TOKEN, ssl_verify=False)
+        self.server = gitlab.Gitlab(config.getGitlabURL(), private_token=config.getPrivateToken(), ssl_verify=False)
         self.server.auth()  # Authenticate
 
     def getUser(self):
