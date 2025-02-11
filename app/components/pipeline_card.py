@@ -48,7 +48,7 @@ class PipelineCard:
     def fetch_gitlab_pipelines(self, branch=None):
         """Fetch latest pipelines for the selected branch."""
         try:
-            filters = {"order_by": "updated_at", "sort": "desc", "per_page": 5}
+            filters = {"order_by": "updated_at", "sort": "desc", "per_page": 1}
             if branch:
                 filters["ref"] = branch
             return self.project.pipelines.list(**filters)
