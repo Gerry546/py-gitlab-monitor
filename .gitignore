@@ -175,3 +175,5 @@ cython_debug/
 
 # Private server settings
 config.json
+# Server certificates
+*.pem

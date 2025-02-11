@@ -20,3 +20,6 @@ class Config:
 
     def getPrivateToken(self):
         return self.configuration["private_token"]
+
+    def getCert(self):
+        return self.configuration["cert_name"]
